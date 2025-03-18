@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Pontos - Tranca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Contador de Pontos - Tranca</h2>
+        <div class="player">
+            <label>Jogador 1:</label>
+            <input type="number" id="pontos1" placeholder="0">
+        </div>
+        <div class="player">
+            <label>Jogador 2:</label>
+            <input type="number" id="pontos2" placeholder="0">
+        </div>
+        <div class="buttons">
+            <button onclick="adicionarPontos()">Adicionar Pontos</button>
+            <button onclick="resetarPontos()" class="reset">Resetar</button>
+        </div>
+        <h3>Pontuação Total</h3>
+        <p>Jogador 1: <span id="total1">0</span></p>
+        <p>Jogador 2: <span id="total2">0</span></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
