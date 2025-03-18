@@ -1,78 +1,142 @@
-* {
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
 .container {
-    background: white;
+    max-width: 90%;
+    width: 400px;
+    margin: auto;
     padding: 20px;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    width: 90%;
-    max-width: 400px;
 }
 
-h2 {
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.player {
-    margin-bottom: 10px;
-}
-
-input {
-    width: 80px;
-    padding: 5px;
-    text-align: center;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.buttons {
+.players {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.players input {
+    font-size: 18px;
+    padding: 5px;
+    text-align: center;
+    border: none;
+    border-bottom: 2px solid black;
+    margin: 5px;
+    background: transparent;
+    outline: none;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.column {
+    text-align: center;
+    flex: 1;
+    min-width: 120px;
+}
+
+.column h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    height: 120px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 5px;
+}
+
+input[type=number] {
+    width: 80px;
+    font-size: 18px;
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
 }
 
 button {
-    padding: 10px;
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
     cursor: pointer;
+    background: green;
+    color: white;
     border: none;
     border-radius: 5px;
-    background-color: #28a745;
-    color: white;
-    font-weight: bold;
-    transition: 0.3s;
 }
 
 button:hover {
-    background-color: #218838;
+    background: darkgray;
 }
 
-button.reset {
-    background-color: #dc3545;
+h3 {
+    font-size: 20px;
 }
 
-button.reset:hover {
-    background-color: #c82333;
-}
-
-/* Responsividade */
 @media (max-width: 480px) {
     .container {
-        width: 95%;
+        width: 100%;
+        padding: 15px;
+    }
+    .players input {
+        font-size: 16px;
+        width: 100px;
+    }
+    input[type=number] {
+        width: 60px;
+        font-size: 16px;
+    }
+    button {
+        font-size: 14px;
+        padding: 8px 12px;
     }
 }
+#adicionar {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#resetar {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#adicionar:hover {
+    background-color: darkgreen;
+}
+
+#resetar:hover {
+    background-color: darkred;
+}
+
