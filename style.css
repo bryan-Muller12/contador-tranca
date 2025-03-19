@@ -1,142 +1,110 @@
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f5f5f5;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
 }
 
 .container {
-    max-width: 90%;
-    width: 400px;
-    margin: auto;
+    width: 90%;
+    max-width: 400px;
     padding: 20px;
-    background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    background: #2c3e50;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
 }
 
-.players {
+.players, .scoreboard, .history, .input-section, .buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
     margin-bottom: 15px;
-}
-
-.players input {
-    font-size: 18px;
-    padding: 5px;
-    text-align: center;
-    border: none;
-    border-bottom: 2px solid black;
-    margin: 5px;
-    background: transparent;
-    outline: none;
 }
 
 .scoreboard {
     display: flex;
-    justify-content: space-around;
-    margin-bottom: 15px;
-    flex-wrap: wrap;
+    justify-content: space-around; /* Garante que os números fiquem nas extremidades */
+    align-items: center;
+    width: 100%;
+    font-size: 2rem; /* Ajusta o tamanho do placar */
 }
 
-.column {
-    text-align: center;
-    flex: 1;
-    min-width: 120px;
+.score {
+    flex: 1; /* Garante que cada número ocupe espaço igual */
+    text-align: center; /* Centraliza o número dentro de sua área */
 }
-
-.column h3 {
-    font-size: 24px;
-    margin-bottom: 5px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
+.history-column {
+    width: 45%;
     height: 120px;
     overflow-y: auto;
-    background: #fff;
+    background: white;
     border: 1px solid black;
-    margin-bottom: 10px;
-    font-size: 18px;
-    font-weight: bold;
     padding: 5px;
+    text-align: center;
+    border-radius: 5px;
 }
 
-input[type=number] {
-    width: 80px;
-    font-size: 18px;
-    text-align: center;
-    border: 1px solid black;
-    border-radius: 5px;
+.history-item {
+    font-size: 16px;
     padding: 5px;
+    margin: 2px;
+    font-weight: bold;
+}
+
+.positive {
+    color: green;
+}
+
+.negative {
+    color: red;
+}
+
+input[type=number], input[type=text] {
+    width: 45%;
+    font-size: 16px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    outline: none;
+}
+
+.players input {
+    background: transparent; /* Remove o fundo branco */
+    color: white; /* Deixa a fonte branca */
+    font-size: 1.5rem; /* Aumenta o tamanho da fonte */
+    text-align: center; /* Centraliza o texto dentro do input */
+    padding: 5px 10px; /* Ajusta o espaçamento interno */
+    border-radius: 10px; /* Deixa as bordas arredondadas */
 }
 
 button {
-    margin: 10px;
-    padding: 10px 15px;
+    width: 45%;
+    padding: 10px;
     font-size: 16px;
     cursor: pointer;
-    background: green;
-    color: white;
     border: none;
     border-radius: 5px;
 }
 
-button:hover {
-    background: darkgray;
-}
-
-h3 {
-    font-size: 20px;
-}
-
-@media (max-width: 480px) {
-    .container {
-        width: 100%;
-        padding: 15px;
-    }
-    .players input {
-        font-size: 16px;
-        width: 100px;
-    }
-    input[type=number] {
-        width: 60px;
-        font-size: 16px;
-    }
-    button {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-}
 #adicionar {
-    background-color: green;
+    background-color: #27ae60;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
 }
 
 #resetar {
-    background-color: red;
+    background-color: #c0392b;
     color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 5px;
 }
 
-#adicionar:hover {
-    background-color: darkgreen;
+footer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #ecf0f1;
 }
-
-#resetar:hover {
-    background-color: darkred;
-}
-
