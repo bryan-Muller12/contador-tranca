@@ -35,3 +35,17 @@ function resetarPontos() {
     document.getElementById('history1').innerHTML = '';
     document.getElementById('history2').innerHTML = '';
 }
+function atualizarPlaceholders() {
+    const nome1 = document.getElementById('nome1').value || 'Dupla 1';
+    const nome2 = document.getElementById('nome2').value || 'Dupla 2';
+
+    document.getElementById('pontos1').placeholder = `Digite os pontos de ${nome1}`;
+    document.getElementById('pontos2').placeholder = `Digite os pontos de ${nome2}`;
+}
+
+// Atualiza automaticamente ao digitar
+document.getElementById('nome1').addEventListener('input', atualizarPlaceholders);
+document.getElementById('nome2').addEventListener('input', atualizarPlaceholders);
+
+// Atualiza ao carregar a página
+atualizarPlaceholders();
