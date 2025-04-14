@@ -45,7 +45,6 @@ body {
 }
 
 .reset-icon:hover {
-    transform: rotate(90deg);
     color: red;
 }
 
