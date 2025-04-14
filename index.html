@@ -8,39 +8,47 @@
     <link rel="icon" type="image/png" href="baralho.png">
 </head>
 <body>
+    <div class="container-wrapper">
     <div class="container">
+        <button id="resetar" onclick="resetarPontos()" class="reset-icon" title="Resetar">&#x21bb;</button>
         <h2>Placar Tranca</h2>
+
+        <!-- Ícone de reset no canto superior direito -->
+       
+
         <div class="players">
             <input type="text" id="nome1" placeholder="Jogador 1" value="Dupla 1">
             <span>x</span>
             <input type="text" id="nome2" placeholder="Jogador 2" value="Dupla 2">
         </div>
+
         <div class="scoreboard">
             <h3><span class="score" id="total1">0</span></h3>
-            
             <h3><span class="score" id="total2">0</span></h3>
         </div>
+
         <div class="history">
             <div id="history1" class="history-column"></div>
             <div id="history2" class="history-column"></div>
         </div>
+
         <div class="input-section">
             <input type="number" id="pontos1" placeholder="0">
             <input type="number" id="pontos2" placeholder="0">
         </div>
+
         <div class="buttons">
             <button id="adicionar" onclick="adicionarPontos()">Adicionar Pontos</button>
-            <button id="resetar" onclick="resetarPontos()">Resetar</button>
         </div>
+
         <h3>Diferença: <span id="diferenca">0</span></h3>
     </div>
+    </div>
+
     <footer>
         Desenvolvido por Bryan Muller
     </footer>
-        <script src="script.js"></script>
 
-    <style>
-        
-    </style>
+    <script src="script.js"></script>
 </body>
 </html>

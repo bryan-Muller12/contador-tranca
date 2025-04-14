@@ -10,14 +10,43 @@ body {
     height: 100vh;
     margin: 0;
 }
+.container-wrapper {
+    position: relative; /* Permite que elementos dentro tenham posicionamento absoluto */
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 
 .container {
+    position: relative;
     width: 90%;
     max-width: 400px;
     padding: 20px;
     background: #2c3e50;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+}
+
+.reset-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    width: auto;
+    height: auto;
+    display: inline; /* ← Isso é o que você precisa */
+    background-color: transparent; /* remove o fundo vermelho de teste */
+}
+
+.reset-icon:hover {
+    transform: rotate(90deg);
+    color: red;
 }
 
 .players, .scoreboard, .history, .input-section, .buttons {
@@ -29,16 +58,17 @@ body {
 
 .scoreboard {
     display: flex;
-    justify-content: space-around; /* Garante que os números fiquem nas extremidades */
+    justify-content: space-around;
     align-items: center;
     width: 100%;
-    font-size: 2rem; /* Ajusta o tamanho do placar */
+    font-size: 2rem;
 }
 
 .score {
-    flex: 1; /* Garante que cada número ocupe espaço igual */
-    text-align: center; /* Centraliza o número dentro de sua área */
+    flex: 1;
+    text-align: center;
 }
+
 .history-column {
     width: 45%;
     height: 120px;
@@ -76,16 +106,16 @@ input[type=number], input[type=text] {
 }
 
 .players input {
-    background: transparent; /* Remove o fundo branco */
-    color: white; /* Deixa a fonte branca */
-    font-size: 1.5rem; /* Aumenta o tamanho da fonte */
-    text-align: center; /* Centraliza o texto dentro do input */
-    padding: 5px 10px; /* Ajusta o espaçamento interno */
-    border-radius: 10px; /* Deixa as bordas arredondadas */
+    background: transparent;
+    color: white;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 10px;
 }
 
 button {
-    width: 45%;
+    width: 100%;
     padding: 10px;
     font-size: 16px;
     cursor: pointer;
@@ -95,11 +125,6 @@ button {
 
 #adicionar {
     background-color: #27ae60;
-    color: white;
-}
-
-#resetar {
-    background-color: #c0392b;
     color: white;
 }
 

@@ -28,7 +28,7 @@ function adicionarPontos() {
 function resetarPontos() {
     total1 = 0;
     total2 = 0;
-    
+
     document.getElementById('total1').innerText = total1;
     document.getElementById('total2').innerText = total2;
     document.getElementById('diferenca').innerText = "0";
