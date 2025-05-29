@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Nunito', Arial, sans-serif; /* Fonte atualizada */
     text-align: center;
     background-color: #2c3e50;
     color: white;
@@ -7,11 +7,14 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Usar min-height para acomodar conteúdo maior */
     margin: 0;
+    padding: 20px; /* Padding no body para evitar que o container toque as bordas */
+    box-sizing: border-box;
 }
+
 .container-wrapper {
-    position: relative; /* Permite que elementos dentro tenham posicionamento absoluto */
+    position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -20,11 +23,18 @@ body {
 .container {
     position: relative;
     width: 90%;
-    max-width: 400px;
-    padding: 20px;
-    background: #2c3e50;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
+    max-width: 450px; /* Um pouco maior para respiro */
+    padding: 25px;     /* Padding interno para respiro */
+    background: #34495e; /* Tom ligeiramente diferente do body para distinção */
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.35); /* Sombra mais suave e moderna */
+    border-radius: 12px; /* Bordas mais arredondadas */
+}
+
+h2 { /* Estilo para "Placar Tranca" */
+    font-weight: 800; /* Mais peso para o título */
+    font-size: 2.2em; /* Tamanho do título */
+    margin-bottom: 25px; /* Espaçamento abaixo do título */
+    color: #ecf0f1;
 }
 
 .reset-icon {
@@ -45,90 +55,186 @@ body {
 }
 
 .reset-icon:hover {
-    color: red;
+    color: #e74c3c; /* Vermelho mais vivo */
+}
+
+.reset-icon:active {
+    transform: scale(0.9);
 }
 
 .players, .scoreboard, .history, .input-section, .buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Espaçamento entre seções */
+}
+
+.players span { /* Estilo para o "x" */
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #bdc3c7;
+    margin: 0 10px;
 }
 
 .scoreboard {
-    display: flex;
     justify-content: space-around;
-    align-items: center;
     width: 100%;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    background-color: rgba(0,0,0,0.15); /* Fundo sutil para destacar o placar */
+    border-radius: 8px;
+    margin-bottom: 25px;
 }
 
 .score {
     flex: 1;
     text-align: center;
+    font-weight: 800;
+    color: #1abc9c; /* Cor de destaque para os scores */
+}
+#total2.score { /* Exemplo se quiser cor diferente para o segundo score */
+    color: #3498db;
+}
+
+.history {
+    min-height: 130px; /* Altura mínima para a seção de histórico */
+    gap: 16px; /* Vão entre as colunas de histórico */
+    /* display: flex; já definido em .players, .scoreboard, .history... */
+    /* justify-content: space-between;  O 'gap' acima é uma forma mais moderna se as colunas usarem flex:1 */
 }
 
 .history-column {
-    width: 45%;
+    flex: 1; /* Faz as colunas dividirem o espaço igualmente com o 'gap' */
     height: 120px;
     overflow-y: auto;
-    background: white;
-    border: 1px solid black;
-    padding: 5px;
+    background: #e9ecef;
+    border: 1px solid #d1d9e0; /* Borda mais suave */
+    padding: 10px; /* Padding interno da coluna */
     text-align: center;
-    border-radius: 5px;
+    border-radius: 8px;
+    color: #333;
 }
 
 .history-item {
-    font-size: 16px;
-    padding: 5px;
-    margin: 2px;
-    font-weight: bold;
+    font-size: 1em;
+    padding: 6px 8px;
+    margin: 4px 0;
+    font-weight: 700;
+    border-radius: 4px;
 }
 
-.positive {
-    color: green;
+.history-item.positive {
+    color: #198754;
+    background-color: rgba(25, 135, 84, 0.12);
 }
 
-.negative {
-    color: red;
+.history-item.negative {
+    color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.12);
+}
+
+.history-column::-webkit-scrollbar {
+    width: 8px;
+}
+.history-column::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.05);
+    border-radius: 10px;
+}
+.history-column::-webkit-scrollbar-thumb {
+    background: #bdc3c7;
+    border-radius: 10px;
+}
+.history-column::-webkit-scrollbar-thumb:hover {
+    background: #95a5a6;
 }
 
 input[type=number], input[type=text] {
-    width: 45%;
-    font-size: 16px;
+    width: 48%;
+    font-size: 1em;
     text-align: center;
-    border: none;
-    border-radius: 5px;
-    padding: 8px;
+    border: 1px solid #556a80; /* Borda sutil */
+    border-radius: 6px;
+    padding: 10px 8px;
     outline: none;
-}
-
-.players input {
-    background: transparent;
+    background-color: #3e5266; /* Fundo do input */
     color: white;
-    font-size: 1.5rem;
-    text-align: center;
-    padding: 5px 10px;
-    border-radius: 10px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
 }
 
-button {
+input[type=number]:focus, input[type=text]:focus {
+    border-color: #1abc9c; /* Cor de destaque no foco */
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.25); /* Glow no foco */
+}
+
+.players input[type=text] {
+    background: transparent;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: none;
+    border-bottom: 2px solid #7f8c8d; /* Borda inferior para destaque */
+    box-shadow: none;
+}
+
+.players input[type=text]:focus {
+    border-bottom-color: #1abc9c; /* Destaque no foco */
+    box-shadow: none;
+}
+
+input::placeholder {
+    color: #a2b4c6;
+    opacity: 1;
+}
+input:-ms-input-placeholder {
+   color: #a2b4c6;
+}
+input::-ms-input-placeholder {
+   color: #a2b4c6;
+}
+
+button { /* Estilo base para botões */
     width: 100%;
     padding: 10px;
-    font-size: 16px;
+    font-size: 1.1em;
+    font-family: 'Nunito', Arial, sans-serif;
+    font-weight: 700;
     cursor: pointer;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out, transform 0.1s ease, box-shadow 0.2s ease;
+}
+button:active {
+    transform: translateY(1px); /* Efeito de clique */
 }
 
 #adicionar {
-    background-color: #27ae60;
+    background-color: #27ae60; /* Verde principal */
     color: white;
+    padding: 12px 10px; /* Padding do botão */
+}
+
+#adicionar:hover {
+    background-color: #2ecc71; /* Verde mais claro no hover */
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3); /* Sombra no hover */
+}
+#adicionar:active {
+    background-color: #229954; /* Verde mais escuro no clique */
+}
+
+h3#diferenca-container { /* Container da "Diferença" */
+    font-size: 1.1em;
+    color: #bdc3c7;
+    margin-top: 10px;
+}
+#diferenca {
+    font-weight: bold;
+    color: #ecf0f1; /* Cor do número da diferença */
 }
 
 footer {
-    margin-top: 20px;
-    font-size: 14px;
-    color: #ecf0f1;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #bdc3c7;
 }
