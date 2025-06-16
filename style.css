@@ -1,16 +1,62 @@
+/* Variáveis para o tema escuro (padrão) */
+:root {
+    --bg-body: #2c3e50;
+    --bg-card: #34495e;
+    --text-primary: #ecf0f1;
+    --text-secondary: #bdc3c7;
+    --input-bg: #3e5266;
+    --input-border: #556a80;
+    --shadow-color: rgba(0, 0, 0, 0.35);
+    
+    --accent-green: #1abc9c;
+    --accent-blue: #3498db;
+    --accent-red: #e74c3c;
+    --btn-add-bg: #27ae60;
+    --btn-add-hover: #2ecc71;
+    --font-main: 'Nunito', Arial, sans-serif;
+    --border-radius-lg: 12px;
+    --border-radius-md: 8px;
+    --border-radius-sm: 6px;
+}
+
+/* Variáveis para o tema claro */
+body.light-mode {
+    --bg-body: #f0f2f5;
+    --bg-card: #ffffff;
+    --bg-text: #34495e;
+    --text-primary: var(--bg-text); /* ALTERADO: Cor principal do texto agora é azul */
+    --text-secondary: #6b7280;
+    --input-bg: #e9ecef;
+    --input-border: #ced4da;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
 body {
-    font-family: 'Nunito', Arial, sans-serif; /* Fonte atualizada */
+    font-family: var(--font-main);
     text-align: center;
-    background-color: #2c3e50;
-    color: white;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* Usar min-height para acomodar conteúdo maior */
+    min-height: 100vh;
     margin: 0;
-    padding: 20px; /* Padding no body para evitar que o container toque as bordas */
+    padding: 20px;
     box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 .container-wrapper {
@@ -23,56 +69,62 @@ body {
 .container {
     position: relative;
     width: 90%;
-    max-width: 450px; /* Um pouco maior para respiro */
-    padding: 25px;     /* Padding interno para respiro */
-    background: #34495e; /* Tom ligeiramente diferente do body para distinção */
-    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.35); /* Sombra mais suave e moderna */
-    border-radius: 12px; /* Bordas mais arredondadas */
+    max-width: 450px;
+    padding: 20px;
+    background: var(--bg-card);
+    box-shadow: 0px 8px 25px var(--shadow-color);
+    border-radius: var(--border-radius-lg);
+    transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-h2 { /* Estilo para "Placar Tranca" */
-    font-weight: 800; /* Mais peso para o título */
-    font-size: 2.2em; /* Tamanho do título */
-    margin-bottom: 25px; /* Espaçamento abaixo do título */
-    color: #ecf0f1;
+h2 {
+    font-weight: 800;
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: var(--text-primary);
 }
 
-.reset-icon {
+/* NOVO: Estilo para o contêiner dos ícones */
+.header-icons {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 12px; /* Espaço entre os ícones */
+}
+
+/* ALTERADO: Removemos o posicionamento individual */
+.reset-icon,
+.theme-toggle-icon {
+    position: static; /* Removemos o 'absolute' pois o pai já controla */
     background: transparent;
     border: none;
     font-size: 22px;
-    color: white;
+    color: var(--text-primary);
     cursor: pointer;
     padding: 5px;
-    line-height: 1;
-    width: auto;
-    height: auto;
-    display: inline; /* ← Isso é o que você precisa */
-    background-color: transparent; /* remove o fundo vermelho de teste */
 }
 
 .reset-icon:hover {
-    color: #e74c3c; /* Vermelho mais vivo */
+    color: var(--accent-red);
 }
 
-.reset-icon:active {
-    transform: scale(0.9);
+.theme-toggle-icon:hover {
+    color: var(--accent-blue);
 }
 
+/* O restante do CSS permanece igual ao anterior... */
 .players, .scoreboard, .history, .input-section, .buttons {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px; /* Espaçamento entre seções */
+    margin-bottom: 15px;
 }
 
-.players span { /* Estilo para o "x" */
+.players span {
     font-size: 1.5em;
     font-weight: 700;
-    color: #bdc3c7;
+    color: var(--text-secondary);
     margin: 0 10px;
 }
 
@@ -80,37 +132,36 @@ h2 { /* Estilo para "Placar Tranca" */
     justify-content: space-around;
     width: 100%;
     font-size: 2.2rem;
-    background-color: rgba(0,0,0,0.15); /* Fundo sutil para destacar o placar */
-    border-radius: 8px;
-    margin-bottom: 25px;
+    background-color: rgba(0,0,0,0.15);
+    border-radius: var(--border-radius-md);
+    margin-bottom: 20px;
 }
 
 .score {
     flex: 1;
     text-align: center;
     font-weight: 800;
-    color: #1abc9c; /* Cor de destaque para os scores */
+    color: var(--accent-green);
 }
-#total2.score { /* Exemplo se quiser cor diferente para o segundo score */
-    color: #3498db;
+
+#total2.score {
+    color: var(--accent-blue);
 }
 
 .history {
-    min-height: 130px; /* Altura mínima para a seção de histórico */
-    gap: 16px; /* Vão entre as colunas de histórico */
-    /* display: flex; já definido em .players, .scoreboard, .history... */
-    /* justify-content: space-between;  O 'gap' acima é uma forma mais moderna se as colunas usarem flex:1 */
+    min-height: 100px;
+    gap: 16px;
 }
 
 .history-column {
-    flex: 1; /* Faz as colunas dividirem o espaço igualmente com o 'gap' */
-    height: 120px;
+    flex: 1;
+    height: 90px;
     overflow-y: auto;
     background: #e9ecef;
-    border: 1px solid #d1d9e0; /* Borda mais suave */
-    padding: 10px; /* Padding interno da coluna */
+    border: 1px solid #d1d9e0;
+    padding: 10px;
     text-align: center;
-    border-radius: 8px;
+    border-radius: var(--border-radius-md);
     color: #333;
 }
 
@@ -140,7 +191,7 @@ h2 { /* Estilo para "Placar Tranca" */
     border-radius: 10px;
 }
 .history-column::-webkit-scrollbar-thumb {
-    background: #bdc3c7;
+    background: var(--text-secondary);
     border-radius: 10px;
 }
 .history-column::-webkit-scrollbar-thumb:hover {
@@ -151,35 +202,33 @@ input[type=number], input[type=text] {
     width: 48%;
     font-size: 1em;
     text-align: center;
-    border: 1px solid #556a80; /* Borda sutil */
-    border-radius: 6px;
+    border: 1px solid var(--input-border);
+    border-radius: var(--border-radius-sm);
     padding: 10px 8px;
     outline: none;
-    background-color: #3e5266; /* Fundo do input */
-    color: white;
+    background-color: var(--input-bg);
+    color: var(--text-primary);
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     box-sizing: border-box;
 }
 
 input[type=number]:focus, input[type=text]:focus {
-    border-color: #1abc9c; /* Cor de destaque no foco */
-    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.25); /* Glow no foco */
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.25);
 }
 
 .players input[type=text] {
     background: transparent;
-    font-family: 'Nunito', Arial, sans-serif;
+    font-family: var(--font-main);
     font-weight: 700;
     font-size: 1.3rem;
     padding: 8px 10px;
-    border-radius: 8px;
     border: none;
-    border-bottom: 2px solid #7f8c8d; /* Borda inferior para destaque */
-    box-shadow: none;
+    border-bottom: 2px solid var(--text-secondary);
 }
 
 .players input[type=text]:focus {
-    border-bottom-color: #1abc9c; /* Destaque no foco */
+    border-bottom-color: var(--accent-green);
     box-shadow: none;
 }
 
@@ -187,54 +236,42 @@ input::placeholder {
     color: #a2b4c6;
     opacity: 1;
 }
-input:-ms-input-placeholder {
-   color: #a2b4c6;
-}
-input::-ms-input-placeholder {
-   color: #a2b4c6;
-}
 
-button { /* Estilo base para botões */
+button {
     width: 100%;
     padding: 10px;
     font-size: 1.1em;
-    font-family: 'Nunito', Arial, sans-serif;
+    font-family: var(--font-main);
     font-weight: 700;
     cursor: pointer;
     border: none;
-    border-radius: 6px;
+    border-radius: var(--border-radius-sm);
     transition: background-color 0.2s ease-in-out, transform 0.1s ease, box-shadow 0.2s ease;
 }
+
 button:active {
-    transform: translateY(1px); /* Efeito de clique */
+    transform: translateY(1px);
 }
 
 #adicionar {
-    background-color: #27ae60; /* Verde principal */
+    background-color: var(--btn-add-bg);
     color: white;
-    padding: 12px 10px; /* Padding do botão */
+    padding: 12px 10px;
 }
 
-#adicionar:hover {
-    background-color: #2ecc71; /* Verde mais claro no hover */
-    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3); /* Sombra no hover */
-}
-#adicionar:active {
-    background-color: #229954; /* Verde mais escuro no clique */
+
+h3 {
+    color: var(--text-secondary);
+    margin-top: 5px;
 }
 
-h3#diferenca-container { /* Container da "Diferença" */
-    font-size: 1.1em;
-    color: #bdc3c7;
-    margin-top: 10px;
-}
 #diferenca {
     font-weight: bold;
-    color: #ecf0f1; /* Cor do número da diferença */
+    color: var(--text-primary);
 }
 
 footer {
     margin-top: 30px;
     font-size: 0.9em;
-    color: #bdc3c7;
+    color: var(--text-secondary);
 }
